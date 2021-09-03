@@ -91,13 +91,22 @@ public class app {
                     total += bis.cekPajak();
                 }
                 else {
-                    System.out.println("Maaf, jenis kendaraan " + kendaraan[0] + " belum terdaftar");
+                    System.out.println("Maaf, jenis kendaraan belum terdaftar atau input yang dimasukkan tidak sesuai format.\n" +
+                            "Berikut contoh input yang sesuai:\n" +
+                            "Mobil, 80000000\n" +
+                            "Motor, 10000000");
                 }
             }
             System.out.println("Berikut adalah total pajak kamu : Rp" + total);
         }
         catch (InputMismatchException e){
-            System.out.println("Masukkan jumlah kendaraan dalam angka");
+            System.out.println("Maaf, pengecekan gagal. Masukkan jumlah kendaraan dalam angka (cth: 5)");
+        }
+        catch (NumberFormatException ex){
+            System.out.println("Maaf, pengecekan gagal. Masukkan harga mobil dalam angka (cth: 100000000)");
+        }
+        catch (ArrayIndexOutOfBoundsException exe){
+            System.out.println("Maaf, pengecekan gagal. Masukkan jenis dan harga kendaraan sesuai jumlah kendaraan yang dimiliki");
         }
 
     }
